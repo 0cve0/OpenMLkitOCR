@@ -14,13 +14,13 @@ A lightweight, offline Python OCR (Optical Character Recognition) library utiliz
 
 ## Installation
 
-Install the package directly using pip (or clone the repository):
+Install the package directly using pip:
 
 ```bash
-pip install "numpy<2.0.0" opencv-python tflite-runtime huggingface_hub
+pip install openmlkitOCR
 ```
 
-To install OpenMLkit as a package from source:
+Or install from source:
 ```bash
 git clone https://github.com/0cve0/OpenMLkitOCR.git
 cd OpenMLkitOCR
