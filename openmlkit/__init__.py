@@ -5,5 +5,5 @@ from .detector import TextDetector
 from .recognizer import TextRecognizer
 from .pipeline import OpenMLKitOCR
 
-__version__ = "1.0.0"
+__version__ = "1.0.3"
 __all__ = ["OpenMLKitOCR", "TextDetector", "TextRecognizer", "LabelMap"]

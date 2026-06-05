@@ -19,13 +19,18 @@ class OpenMLKitOCR:
             return local_path
 
         repo_id = os.environ.get("OPENMLKIT_MODEL_REPO", "0cve0/OpenMLKitOCR")
-        print(f"Model file '{relative_path}' not found locally at {local_path}. Downloading from Hugging Face ({repo_id})...")
         
         try:
             from huggingface_hub import hf_hub_download
-            # hf_hub_download supports subdirectories in filename
-            cached_path = hf_hub_download(repo_id=repo_id, filename=relative_path)
-            return cached_path
+            try:
+                # Try loading from the local HF cache without hitting the network on every execution
+                cached_path = hf_hub_download(repo_id=repo_id, filename=relative_path, local_files_only=True)
+                return cached_path
+            except Exception:
+                # If not in cache, print progress message and download it from the network
+                print(f"Model file '{relative_path}' not found in local cache. Downloading from Hugging Face ({repo_id})...")
+                cached_path = hf_hub_download(repo_id=repo_id, filename=relative_path)
+                return cached_path
         except Exception as e:
             # Fallback to urllib.request
             import urllib.request
