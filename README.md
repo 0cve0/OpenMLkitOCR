@@ -40,7 +40,7 @@ from openmlkit import OpenMLKitOCR
 os.environ["OPENMLKIT_MODEL_REPO"] = "0cve0/OpenMLKitOCR"
 
 # Initialize OCR pipeline for Cyrillic (Russian) text
-ocr = OpenMLKitOCR(lang='ru')
+ocr = OpenMLKitOCR(lang='en')
 
 # Load image
 img = cv2.imread("scratch/russian_test.png")
