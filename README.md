@@ -39,11 +39,11 @@ from openmlkit import OpenMLKitOCR
 # Configure Hugging Face model source (or use defaults)
 os.environ["OPENMLKIT_MODEL_REPO"] = "0cve0/OpenMLKitOCR"
 
-# Initialize OCR pipeline for Cyrillic (Russian) text
+# Initialize OCR pipeline for Latin (English) text
 ocr = OpenMLKitOCR(lang='en')
 
 # Load image
-img = cv2.imread("scratch/russian_test.png")
+img = cv2.imread("scratch/test.png")
 
 # Run OCR (detect and recognize text)
 results = ocr.run(img, score_threshold=0.35)
